@@ -14,3 +14,4 @@
 ```objc
 [XLBallLoading hideInView:self.view];
 ```
+[实现原理](http://blog.csdn.net/u013282507/article/details/70145151)
