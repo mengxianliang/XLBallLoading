@@ -28,12 +28,12 @@
 }
 
 -(void)show{
-    
+    //显示BallLoading
     [XLBallLoading showInView:self.view];
 }
 
 -(void)hide{
-    
+    //隐藏BallLoading
     [XLBallLoading hideInView:self.view];
 }
 
