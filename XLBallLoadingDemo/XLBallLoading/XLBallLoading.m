@@ -41,9 +41,10 @@ static CGFloat ballScale = 1.5f;
     [self addSubview:_ballContainer];
     
     CGFloat ballWidth = 13.0f;
+    CGFloat margin = 3.0f;
     
     _ball1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ballWidth, ballWidth)];
-    _ball1.center = CGPointMake(ballWidth/2.0f, _ballContainer.bounds.size.height/2.0f);
+    _ball1.center = CGPointMake(ballWidth/2.0f + margin, _ballContainer.bounds.size.height/2.0f);
     _ball1.layer.cornerRadius = ballWidth/2.0f;
     _ball1.backgroundColor = [UIColor colorWithRed:54/255.0 green:136/255.0 blue:250/255.0 alpha:1];
     [_ballContainer addSubview:_ball1];
@@ -55,7 +56,7 @@ static CGFloat ballScale = 1.5f;
     [_ballContainer addSubview:_ball2];
     
     _ball3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ballWidth, ballWidth)];
-    _ball3.center = CGPointMake(_ballContainer.bounds.size.width - ballWidth/2.0f, _ballContainer.bounds.size.height/2.0f);
+    _ball3.center = CGPointMake(_ballContainer.bounds.size.width - ballWidth/2.0f - margin, _ballContainer.bounds.size.height/2.0f);
     _ball3.layer.cornerRadius = ballWidth/2.0f;
     _ball3.backgroundColor = [UIColor colorWithRed:234/255.0 green:67/255.0 blue:69/255.0 alpha:1];
     [_ballContainer addSubview:_ball3];
