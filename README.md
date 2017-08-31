@@ -14,6 +14,6 @@
 ```objc
 [XLBallLoading hideInView:self.view];
 ```
-### [实现原理](http://blog.csdn.net/u013282507/article/details/70145151)
+### 实现原理讲解请移步[我的博文](http://blog.csdn.net/u013282507/article/details/70145151)
 
 ### 个人开发过的UI工具集合 [XLUIKit](https://github.com/mengxianliang/XLUIKit)
