@@ -10,6 +10,7 @@
 ```objc
 [XLBallLoading showInView:self.view];
 ```
+
 * 隐藏
 ```objc
 [XLBallLoading hideInView:self.view];
