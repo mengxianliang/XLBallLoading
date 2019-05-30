@@ -11,6 +11,7 @@
 @interface XLBallLoading : UIView
 
 -(void)start;
+
 -(void)stop;
 
 +(void)showInView:(UIView*)view;

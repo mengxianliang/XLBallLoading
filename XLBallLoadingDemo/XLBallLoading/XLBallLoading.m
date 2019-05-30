@@ -10,12 +10,14 @@
 
 static CGFloat ballScale = 1.5f;
 
-@interface XLBallLoading ()<CAAnimationDelegate>
-{
+@interface XLBallLoading ()<CAAnimationDelegate> {
     
     UIVisualEffectView *_ballContainer;
+    
     UIView *_ball1;
+    
     UIView *_ball2;
+    
     UIView *_ball3;
     
     BOOL _stopAnimationByUser;
@@ -24,7 +26,7 @@ static CGFloat ballScale = 1.5f;
 
 @implementation XLBallLoading
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self initUI];
     }
@@ -32,12 +34,12 @@ static CGFloat ballScale = 1.5f;
 }
 
 -(void)initUI{
-    
-    _ballContainer = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    _ballContainer = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
     _ballContainer.frame = CGRectMake(0, 0, 100, 100);
     _ballContainer.center = CGPointMake(self.bounds.size.width/2.0f, self.bounds.size.height/2.0f);
     _ballContainer.layer.cornerRadius = 10.0f;
     _ballContainer.layer.masksToBounds = true;
+    _ballContainer.backgroundColor = [UIColor clearColor];
     [self addSubview:_ballContainer];
     
     CGFloat ballWidth = 13.0f;
@@ -47,19 +49,19 @@ static CGFloat ballScale = 1.5f;
     _ball1.center = CGPointMake(ballWidth/2.0f + margin, _ballContainer.bounds.size.height/2.0f);
     _ball1.layer.cornerRadius = ballWidth/2.0f;
     _ball1.backgroundColor = [UIColor colorWithRed:54/255.0 green:136/255.0 blue:250/255.0 alpha:1];
-    [_ballContainer addSubview:_ball1];
+    [_ballContainer.contentView addSubview:_ball1];
     
     _ball2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ballWidth, ballWidth)];
     _ball2.center = CGPointMake(_ballContainer.bounds.size.width/2.0f, _ballContainer.bounds.size.height/2.0f);
     _ball2.layer.cornerRadius = ballWidth/2.0f;
     _ball2.backgroundColor = [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:1];
-    [_ballContainer addSubview:_ball2];
+    [_ballContainer.contentView addSubview:_ball2];
     
     _ball3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ballWidth, ballWidth)];
     _ball3.center = CGPointMake(_ballContainer.bounds.size.width - ballWidth/2.0f - margin, _ballContainer.bounds.size.height/2.0f);
     _ball3.layer.cornerRadius = ballWidth/2.0f;
     _ball3.backgroundColor = [UIColor colorWithRed:234/255.0 green:67/255.0 blue:69/255.0 alpha:1];
-    [_ballContainer addSubview:_ball3];
+    [_ballContainer.contentView addSubview:_ball3];
 }
 
 -(void)startPathAnimate{
@@ -131,24 +133,23 @@ static CGFloat ballScale = 1.5f;
     }];
 }
 
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     if (_stopAnimationByUser) {return;}
     [self startPathAnimate];
 }
 
-
--(CGFloat)animationDuration{
+- (CGFloat)animationDuration {
     return 1.6f;
 }
 
 #pragma mark -
 #pragma mark 显示隐藏方法
--(void)start{
+- (void)start {
     [self startPathAnimate];
     _stopAnimationByUser = false;
 }
 
--(void)stop{
+- (void)stop {
     _stopAnimationByUser = true;
     [_ball1.layer removeAllAnimations];
     [_ball1 removeFromSuperview];
